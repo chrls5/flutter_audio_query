@@ -4,6 +4,23 @@ part of flutter_audio_query;
 class AlbumInfo extends DataModel {
   AlbumInfo._(Map<dynamic, dynamic> map) : super._(map);
 
+  Map<String, dynamic> toJson(){
+    return {
+      'artist' : _data['artist'],
+      'title' : _data['title'],
+      'albumArt' : _data['albumArt'],
+      'firstYear' : _data['firstYear'],
+      'lastYear' : _data['lastYear'],
+      'numberOfSongs' : _data['numberOfSongs'],
+      '_id' : super.id
+
+    };
+  }
+
+  static fromJson(Map<String, dynamic> parsedJson){
+    return AlbumInfo._(parsedJson);
+  }
+
   /// Returns the album title .
   String get title => _data['album'];
 
